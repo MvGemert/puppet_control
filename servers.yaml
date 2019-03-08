@@ -1,0 +1,6 @@
+---
+thuis-pc01:
+  public_ip:          '192.168.253.50'
+  cpucount:           2
+  type:               masterless
+  forwarded_ssh_port: 2520

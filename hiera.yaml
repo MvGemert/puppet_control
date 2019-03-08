@@ -1,10 +1,16 @@
 ---
 version: 5
 
-defaults:  # Used for any hierarchy level that omits these keys.
-  datadir: data         # This path is relative to hiera.yaml's directory.
-  data_hash: yaml_data  # Use the built-in YAML backend.
+defaults:
+  data_hash: yaml_data
+  datadir: hieradata
 
 hierarchy:
-  - name: 'common'
-    path: 'common.yaml'
+  - name: 'Node data'
+    path: "nodes/%{::fqdn}.yaml"
+
+  - name: 'Deployment Zones'
+    path: "deployment_zones/%{deployment_zone}.yaml"
+
+  - name: 'Defaults'
+    path: defaults.yaml
